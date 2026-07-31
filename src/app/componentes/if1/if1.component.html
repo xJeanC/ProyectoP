@@ -1,0 +1,84 @@
+<div class="container">
+<div class="row">
+    <div class="col-xl-6 col-lg-6  col-md-6  col-sm-6 col-6  ">   
+  <div id="formAyuda">
+    
+      <h4>Ingrese los datos correspondientes</h4>
+        
+       
+            <form [formGroup]=" registerForm">
+                <div id="datosRecuperados">
+                   
+                </div>
+                <br>
+  
+                <label>Nombre</label><br>
+                <input type="text" class="form-control" formControlName=txtNombre placeholder="Digite su Nombre">
+                <br>
+                <label>Apellido</label><br>
+                <input type="text" class="form-control" formControlName=txtApellido placeholder="Digite su Apellido">
+                <br>
+                <label>Correo</label><br>
+                <input type="text" class="form-control" formControlName=txtCorreo placeholder="Digite su Correo">
+                <br>
+                <label>Telefono</label><br>
+                <input type="number" class="form-control" formControlName=txtTelefono placeholder="Digite su telefono">
+                
+            </form>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6 text-center">
+                <button type="button" formControlName="btnEnviarContact" class="btn btn-warning"
+                    (click)="enviarInfo( registerForm.value)">Enviar</button>
+            </div>
+            <div class="col-6 text-center">
+                <button type="button" formControlName="btnEditarContact" class="btn btn-primary"
+                    (click)="actualizarInfoContact( registerForm.value)">Editar</button>
+                    <br><br>
+            </div>
+        </div>
+   
+  </div></div></div>
+  
+  
+  
+  <div class="container">
+  <div *ngIf="mostrarTabla">
+  
+    <br><br>
+    <div id="cuadro">
+        <br><br>
+        <div id="datosRecuperados" style="display: none;"><label>
+                
+            </label></div>
+        <table class="table table-hover" id="mitabla">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Telefono</th>
+
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+  
+                    <td> 1</td>
+                    <td *ngFor="let icecul of array ">{{icecul}}</td>
+                    
+  
+                    <td>
+                        <button type="button" class="btn btn-outline-warning" style="margin-right: 20px;">Edit</button>
+                        <button type="button" class="btn btn-outline-danger" (click)="eliminar( registerForm.value)">Delete</button>
+                    </td>
+  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+  </div>
+</div>
