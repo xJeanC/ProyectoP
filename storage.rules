@@ -1,0 +1,10 @@
+rules_version = '2';
+
+// Fase 0: todo denegado por defecto. Las fotos de productos se abren en la fase 3.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "icecul-functions",
+  "private": true,
+  "description": "Cloud Functions de IceCul: lógica sensible (pedidos, cupones, roles). Ver docs/PLAN.md.",
+  "main": "lib/index.js",
+  "engines": {
+    "node": "24"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.5.1",
+    "firebase-functions": "^7.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3"
+  }
+}
