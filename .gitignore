@@ -55,3 +55,12 @@ pubsub-debug.log*
 /emulator-data
 /functions/lib
 /functions/node_modules
+
+# Credenciales: nunca al repositorio
+.env
+.env.*
+*.local
+*-firebase-adminsdk-*.json
+service-account*.json
+functions/.secret.local
+functions/.runtimeconfig.json
