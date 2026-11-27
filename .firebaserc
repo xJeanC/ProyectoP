@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "heladeria-1735d"
+    "default": "heladeria-dev",
+    "dev": "heladeria-dev",
+    "prod": "heladeria-1735d"
   }
 }
