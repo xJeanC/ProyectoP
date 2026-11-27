@@ -1,0 +1,27 @@
+<div class="row g-4">
+  @for (producto of productos; track producto.nombre) {
+    <div class="col-12 col-sm-6 col-lg-4">
+      <article class="ic-card ic-producto h-100">
+        <div class="ic-producto__media" [style.--sabor]="producto.color">
+          @if (producto.imagen && !fallidas.has(producto.imagen)) {
+            <img class="ic-producto__img" [src]="producto.imagen" [alt]="producto.nombre" loading="lazy"
+                 (error)="fallidas.add(producto.imagen)">
+          } @else {
+            <span class="ic-producto__emoji" aria-hidden="true">{{ producto.emoji }}</span>
+          }
+        </div>
+        <div class="ic-producto__cuerpo">
+          <h3 class="ic-producto__nombre">{{ producto.nombre }}</h3>
+          <p class="ic-producto__desc">{{ producto.descripcion }}</p>
+          <ul class="ic-producto__info">
+            <li>Disponible por pedido</li>
+            <li>Envíos en Barranquilla</li>
+          </ul>
+          <a class="btn btn-primary w-100 mt-auto" [href]="pedir(producto)" target="_blank" rel="noopener">
+            ¡Pídelo aquí!
+          </a>
+        </div>
+      </article>
+    </div>
+  }
+</div>

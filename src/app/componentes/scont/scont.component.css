@@ -1,0 +1,25 @@
+.ic-contacto {
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.ic-contacto__lista {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.ic-contacto__lista dt {
+  font-family: var(--ic-fuente-titulos);
+  font-weight: 500;
+  color: var(--ic-fresa-oscuro);
+}
+
+.ic-contacto__lista dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.ratio.ic-card iframe {
+  border: 0;
+}
