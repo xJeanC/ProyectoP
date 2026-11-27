@@ -9,48 +9,21 @@ import { InformacionComponent } from './paginas/informacion/informacion.componen
 import { MalteadasComponent } from './paginas/malteadas/malteadas.component';
 import { PrincipalComponent } from './paginas/principal/principal.component';
 
-const routes:Routes=[
-  {
-    path:'principal', component: PrincipalComponent,
-  },
-  {
-    path:'helados',
-    component: HeladosComponent,
-  },
-  {
-    path:'contactos',
-    component: ContactosComponent,
-  },
-  {
-    path:'malteadas',
-    component: MalteadasComponent,
-  },
-  {
-    path:'informacion',
-    component: InformacionComponent,
-  },
- {
-   path:'info1',
-   component: Info1Component,
- },
- {
-  path:'info2',
-  component: Info2Component,
-},
-{
-  path:'info3',
-  component: Info3Component,
-},
-{
-  path:'',
-  redirectTo:'principal',
-  pathMatch:'full',
-},
- 
+const routes: Routes = [
+  { path: 'principal', component: PrincipalComponent, title: 'IceCul · Heladería en Barranquilla' },
+  { path: 'helados', component: HeladosComponent, title: 'Helados · IceCul' },
+  { path: 'malteadas', component: MalteadasComponent, title: 'Malteadas · IceCul' },
+  { path: 'contactos', component: ContactosComponent, title: 'Contáctanos · IceCul' },
+  { path: 'informacion', component: InformacionComponent, title: 'Información · IceCul' },
+  { path: 'info1', component: Info1Component, title: 'Cuéntanos tu inconveniente · IceCul' },
+  { path: 'info2', component: Info2Component, title: 'Trabaja con nosotros · IceCul' },
+  { path: 'info3', component: Info3Component, title: 'Equipo IceCul' },
+  { path: '', redirectTo: 'principal', pathMatch: 'full' },
+  { path: '**', redirectTo: 'principal' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

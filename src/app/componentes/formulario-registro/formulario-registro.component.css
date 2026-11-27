@@ -1,0 +1,46 @@
+.ic-volver {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ic-volver:hover {
+  text-decoration: underline;
+}
+
+.ic-form {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  scroll-margin-top: 6rem;
+}
+
+.ic-contador {
+  background: var(--ic-vainilla);
+  color: var(--ic-fresa-oscuro);
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.ic-vacio {
+  padding: 1.5rem;
+  border: 2px dashed var(--ic-borde);
+  border-radius: var(--ic-radio);
+  color: var(--ic-chocolate-suave);
+  text-align: center;
+}
+
+.ic-card.table-responsive {
+  padding: 0.5rem;
+}
+
+.ic-detalle {
+  min-width: 200px;
+  max-width: 320px;
+  white-space: pre-line;
+}
+
+.ic-nota {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--ic-chocolate-suave);
+}

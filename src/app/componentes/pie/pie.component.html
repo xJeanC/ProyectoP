@@ -1,8 +1,31 @@
+<footer class="ic-pie">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <p class="ic-pie__marca">IceCul</p>
+        <p class="mb-0">La heladería de barrio de la universidad: helados y malteadas hechos con buenos ingredientes.</p>
+      </div>
 
-<div  style="background-color: black;" class="text-center text-white">
-    
-        Barranquilla - Colombia <br>
-        Info@CreamCUL.com <br>
-Dirección: Cl. 58 #55 - 24 A, Barranquilla, Atlántico <br>
-</div>
+      <div class="col-12 col-sm-6 col-md-4">
+        <h2 class="ic-pie__titulo">Visítanos</h2>
+        <address class="mb-0">
+          {{ contacto.direccion }}<br>
+          {{ contacto.ciudad }}<br>
+          Lunes a viernes 9 AM – 6 PM<br>
+          Sábado y domingo 9 AM – 9 PM
+        </address>
+      </div>
 
+      <div class="col-12 col-sm-6 col-md-4">
+        <h2 class="ic-pie__titulo">Escríbenos</h2>
+        <ul class="list-unstyled mb-0">
+          <li><a [href]="'mailto:' + contacto.correo">{{ contacto.correo }}</a></li>
+          <li><a [href]="whatsapp" target="_blank" rel="noopener">WhatsApp {{ contacto.whatsappVisible }}</a></li>
+          <li>Teléfono {{ contacto.telefono }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="ic-pie__copy">© {{ anio }} IceCul · Barranquilla</p>
+  </div>
+</footer>

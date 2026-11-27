@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CONTACTO, enlaceWhatsapp } from '../../contacto';
 
 @Component({
   selector: 'app-pie',
   templateUrl: './pie.component.html',
-  styleUrls: ['./pie.component.css']
+  styleUrls: ['./pie.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: false,
 })
-export class PieComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class PieComponent {
+  readonly contacto = CONTACTO;
+  readonly whatsapp = enlaceWhatsapp();
+  readonly anio = new Date().getFullYear();
 }

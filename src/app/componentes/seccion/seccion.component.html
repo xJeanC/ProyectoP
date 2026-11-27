@@ -1,43 +1,52 @@
-
-<div style="background-image: image-set(); background-repeat: no-repeat; background-size: cover; background-size: auto;">
-<div class="container">
-<br><br><br>
- 
- <div class="row">
-
-     <div class="col-lg-6 ">
-
-        
-           <img class="text-center" src="../../../assets/img/icecul.jpeg" style="width:350px; height:350px;">
-
-           <br>
-
-  
-
+<section class="ic-seccion">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-12 col-lg-5">
+        <img class="ic-foto ic-quienes__foto" src="assets/img/icecul.jpeg" alt="Logo y local de IceCul" loading="lazy">
       </div>
 
-      <div class="col-lg-6 ">
+      <div class="col-12 col-lg-7">
+        <span class="ic-eyebrow">Quiénes somos</span>
+        <h2 class="ic-titulo">La heladería de barrio, ahora en la universidad</h2>
+        <p class="ic-lead">
+          IceCul quiere recuperar el concepto de la heladería de barrio clásica, donde las personas se reúnen
+          a pasar un buen rato. Esta vez estamos dentro de la universidad, para que después de un largo día de
+          estudio puedas disfrutar un helado o una malteada.
+        </p>
+        <p class="ic-lead">
+          Trabajamos siempre con materias primas de la mejor calidad, porque queremos que cada cliente
+          salga satisfecho.
+        </p>
 
-       <h1 style="text-align: center; color: blue;"> ¿Quienes Somos?</h1>
-
-       <h4 style="text-align: center;color: rgb(0, 0, 0);">
-
-        Ice Cul, Heladería que busca recuperar el concepto de barrio, clásica donde las personas
-
-         se reúnen a pasar un rato mientras disfrutan pero en esta ocasión es dentro de una universidad
-
-         donde los estudiantes pueden ir y comer un helado o malteada luego de un largo día de estudio.
-
-         Esperamos que nuestros clientes siempre esten satisfechos con la calidad de nuestros producto
-
-         ya que todas nuestras materias primas siempre son de la mejor calidad.    <br>
-
-       </h4>      
-
+        <ul class="ic-quienes__datos">
+          <li><strong>Artesanales</strong> sabores de siempre</li>
+          <li><strong>7 días</strong> a la semana abiertos</li>
+          <li><strong>Domicilios</strong> en Barranquilla</li>
+        </ul>
       </div>
-
+    </div>
   </div>
-</div>
-  <br><br><br><br><br>
+</section>
 
+<section class="ic-seccion ic-seccion--vainilla">
+  <div class="container text-center">
+    <span class="ic-eyebrow">Nuestro menú</span>
+    <h2 class="ic-titulo">¿Qué se te antoja hoy?</h2>
+    <p class="ic-lead mb-4">Elige entre nuestros helados de siempre o una malteada bien fría.</p>
 
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a class="ic-card ic-atajo" routerLink="/helados">
+          <img src="assets/img/front-view-delicious-ice-creams-on-the-table.jpg" alt="Helados servidos en la mesa" loading="lazy">
+          <span>Helados</span>
+        </a>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a class="ic-card ic-atajo" routerLink="/malteadas">
+          <span class="ic-atajo__color" aria-hidden="true">🥤</span>
+          <span>Malteadas</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

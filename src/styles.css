@@ -1,1 +1,215 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   IceCul — estilos globales
+   Paleta y tipografía en un solo lugar. Bootstrap se carga antes que este
+   archivo (ver angular.json), así que aquí lo sobrescribimos.
+   ========================================================================== */
+
+:root {
+  /* Paleta */
+  --ic-fresa: #e8467c;
+  --ic-fresa-oscuro: #c22f62;
+  --ic-menta: #23a58f;
+  --ic-crema: #fff8f1;
+  --ic-vainilla: #fdecd8;
+  --ic-chocolate: #3b2a24;
+  --ic-chocolate-suave: #6d5a52;
+  --ic-blanco: #ffffff;
+  --ic-borde: #f1dccb;
+
+  /* Tipografía */
+  --ic-fuente-titulos: 'Fredoka', system-ui, sans-serif;
+  --ic-fuente-texto: 'Nunito', system-ui, sans-serif;
+
+  /* Forma */
+  --ic-radio: 1rem;
+  --ic-sombra: 0 10px 30px rgba(59, 42, 36, 0.08);
+
+  /* Bootstrap */
+  --bs-body-font-family: var(--ic-fuente-texto);
+  --bs-body-color: var(--ic-chocolate);
+  --bs-body-bg: var(--ic-crema);
+  --bs-link-color-rgb: 194, 47, 98;
+  --bs-link-hover-color-rgb: 150, 30, 72;
+  --bs-border-radius: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ic-crema);
+  color: var(--ic-chocolate);
+  font-family: var(--ic-fuente-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand, .btn {
+  font-family: var(--ic-fuente-titulos);
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.6rem, 4vw, 2.25rem); }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Utilidades propias
+   -------------------------------------------------------------------------- */
+
+.ic-seccion {
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+}
+
+.ic-seccion--vainilla {
+  background: var(--ic-vainilla);
+}
+
+.ic-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--ic-fresa-oscuro);
+  font-family: var(--ic-fuente-titulos);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ic-titulo {
+  margin-bottom: 0.75rem;
+}
+
+.ic-lead {
+  color: var(--ic-chocolate-suave);
+  font-size: 1.1rem;
+  max-width: 60ch;
+}
+
+.text-center .ic-lead {
+  margin-inline: auto;
+}
+
+.ic-card {
+  background: var(--ic-blanco);
+  border: 1px solid var(--ic-borde);
+  border-radius: var(--ic-radio);
+  box-shadow: var(--ic-sombra);
+  overflow: hidden;
+}
+
+.ic-foto {
+  width: 100%;
+  border-radius: var(--ic-radio);
+  box-shadow: var(--ic-sombra);
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Botones
+   -------------------------------------------------------------------------- */
+
+.btn {
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.55rem 1.4rem;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.9rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--ic-fresa);
+  --bs-btn-border-color: var(--ic-fresa);
+  --bs-btn-hover-bg: var(--ic-fresa-oscuro);
+  --bs-btn-hover-border-color: var(--ic-fresa-oscuro);
+  --bs-btn-active-bg: var(--ic-fresa-oscuro);
+  --bs-btn-active-border-color: var(--ic-fresa-oscuro);
+  --bs-btn-disabled-bg: var(--ic-fresa);
+  --bs-btn-disabled-border-color: var(--ic-fresa);
+  --bs-btn-focus-shadow-rgb: 232, 70, 124;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--ic-fresa-oscuro);
+  --bs-btn-border-color: var(--ic-fresa);
+  --bs-btn-hover-bg: var(--ic-fresa);
+  --bs-btn-hover-border-color: var(--ic-fresa);
+  --bs-btn-active-bg: var(--ic-fresa-oscuro);
+  --bs-btn-active-border-color: var(--ic-fresa-oscuro);
+  --bs-btn-focus-shadow-rgb: 232, 70, 124;
+}
+
+.btn-whatsapp {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #1fa855;
+  --bs-btn-border-color: #1fa855;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #178a45;
+  --bs-btn-hover-border-color: #178a45;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #178a45;
+  --bs-btn-active-border-color: #178a45;
+  --bs-btn-focus-shadow-rgb: 31, 168, 85;
+}
+
+/* --------------------------------------------------------------------------
+   Formularios
+   -------------------------------------------------------------------------- */
+
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.form-control,
+.form-select {
+  border-color: var(--ic-borde);
+  padding: 0.6rem 0.85rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--ic-fresa);
+  box-shadow: 0 0 0 0.2rem rgba(232, 70, 124, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   Tablas
+   -------------------------------------------------------------------------- */
+
+.table {
+  --bs-table-bg: transparent;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.table thead th {
+  font-family: var(--ic-fuente-titulos);
+  font-weight: 500;
+  white-space: nowrap;
+}

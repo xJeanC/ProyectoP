@@ -1,0 +1,125 @@
+<section class="ic-seccion">
+  <div class="container">
+    <a class="ic-volver" routerLink="/informacion">← Volver a Información</a>
+
+    <header class="mb-4">
+      <span class="ic-eyebrow">{{ config.eyebrow }}</span>
+      <h1 class="ic-titulo">{{ config.titulo }}</h1>
+      <p class="ic-lead">{{ config.descripcion }}</p>
+    </header>
+
+    @if (!almacen.disponible) {
+      <div class="alert alert-warning" role="alert">
+        Tu navegador no permite guardar datos en este sitio. Los registros se perderán al recargar la página,
+        pero puedes enviarlos por WhatsApp.
+      </div>
+    }
+
+    @if (guardado) {
+      <div class="alert alert-success d-flex flex-column flex-sm-row align-items-sm-center gap-3" role="status">
+        <span class="flex-grow-1">
+          <strong>¡Listo, {{ guardado.nombre }}!</strong> Tu registro quedó guardado.
+          Envíalo por WhatsApp para que nos llegue.
+        </span>
+        <a class="btn btn-whatsapp" [href]="whatsapp(guardado)" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      </div>
+    }
+
+    <div class="ic-card ic-form" #tarjetaFormulario>
+      <h2 class="h4 mb-3">{{ editandoId === null ? 'Ingresa tus datos' : 'Editando registro #' + editandoId }}</h2>
+
+      <form [formGroup]="form" (ngSubmit)="guardar()" novalidate>
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <label class="form-label" [for]="config.clave + '-nombre'">Nombre</label>
+            <input class="form-control" [id]="config.clave + '-nombre'" type="text" formControlName="nombre"
+                   autocomplete="given-name" placeholder="Tu nombre" [class.is-invalid]="invalido('nombre')">
+            <div class="invalid-feedback">Escribe tu nombre.</div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label" [for]="config.clave + '-apellido'">Apellido</label>
+            <input class="form-control" [id]="config.clave + '-apellido'" type="text" formControlName="apellido"
+                   autocomplete="family-name" placeholder="Tu apellido" [class.is-invalid]="invalido('apellido')">
+            <div class="invalid-feedback">Escribe tu apellido.</div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label" [for]="config.clave + '-correo'">Correo</label>
+            <input class="form-control" [id]="config.clave + '-correo'" type="email" formControlName="correo"
+                   autocomplete="email" placeholder="tucorreo@ejemplo.com" [class.is-invalid]="invalido('correo')">
+            <div class="invalid-feedback">Escribe un correo válido.</div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label" [for]="config.clave + '-telefono'">Teléfono</label>
+            <input class="form-control" [id]="config.clave + '-telefono'" type="tel" formControlName="telefono"
+                   autocomplete="tel" inputmode="tel" placeholder="300 123 4567" [class.is-invalid]="invalido('telefono')">
+            <div class="invalid-feedback">Escribe un teléfono de 7 a 15 dígitos.</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label" [for]="config.clave + '-detalle'">{{ config.campoDetalle.etiqueta }}</label>
+            <textarea class="form-control" [id]="config.clave + '-detalle'" rows="4" formControlName="detalle"
+                      [placeholder]="config.campoDetalle.placeholder" [class.is-invalid]="invalido('detalle')"></textarea>
+            <div class="invalid-feedback">Este campo es obligatorio (máximo 500 caracteres).</div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+          <button type="submit" class="btn btn-primary">
+            {{ editandoId === null ? 'Guardar' : 'Guardar cambios' }}
+          </button>
+          @if (editandoId !== null) {
+            <button type="button" class="btn btn-outline-primary" (click)="cancelar()">Cancelar edición</button>
+          }
+        </div>
+      </form>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="h4 mb-3">Registros guardados <span class="badge rounded-pill ic-contador">{{ registros.length }}</span></h2>
+
+      @if (registros.length === 0) {
+        <p class="ic-vacio">Todavía no hay registros. Los que guardes aparecerán aquí.</p>
+      } @else {
+        <div class="ic-card table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">{{ config.campoDetalle.etiqueta }}</th>
+                <th scope="col">Fecha</th>
+                <th scope="col" class="text-end">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (registro of registros; track registro.id) {
+                <tr [class.table-warning]="registro.id === editandoId">
+                  <td>{{ registro.id }}</td>
+                  <td class="text-nowrap">{{ registro.nombre }} {{ registro.apellido }}</td>
+                  <td>{{ registro.correo }}</td>
+                  <td class="text-nowrap">{{ registro.telefono }}</td>
+                  <td class="ic-detalle">{{ registro.detalle }}</td>
+                  <td class="text-nowrap">{{ registro.fecha | date: 'd MMM y, h:mm a' }}</td>
+                  <td>
+                    <div class="d-flex gap-2 justify-content-end">
+                      <a class="btn btn-sm btn-whatsapp" [href]="whatsapp(registro)" target="_blank" rel="noopener"
+                         [attr.aria-label]="'Enviar por WhatsApp el registro ' + registro.id">WhatsApp</a>
+                      <button type="button" class="btn btn-sm btn-outline-primary" (click)="editar(registro)">Editar</button>
+                      <button type="button" class="btn btn-sm btn-outline-danger" (click)="eliminar(registro)">Eliminar</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="ic-nota">Los registros se guardan solo en este navegador. Envíalos por WhatsApp para que nos lleguen.</p>
+      }
+    </div>
+  </div>
+</section>

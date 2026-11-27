@@ -1,0 +1,43 @@
+.ic-pie {
+  background: var(--ic-chocolate);
+  color: #f3e6dc;
+  padding-block: 3rem 1.5rem;
+  margin-top: auto;
+}
+
+.ic-pie a {
+  color: #ffc2d6;
+  text-decoration: none;
+}
+
+.ic-pie a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ic-pie__marca {
+  font-family: var(--ic-fuente-titulos);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.ic-pie__titulo {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.ic-pie li + li {
+  margin-top: 0.25rem;
+}
+
+.ic-pie__copy {
+  margin: 2.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.9rem;
+  color: #c9b6aa;
+  text-align: center;
+}
